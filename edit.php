@@ -14,8 +14,8 @@ if(isset($_POST['update']))
 	// update user data
 	$result = mysqli_query($mysqli, "UPDATE produks SET name='$name',jenis='$jenis',stok='$stok' WHERE id=$id");
 	
-	// Redirect to homepage to display updated user in list
-	header("Location: index.php");
+	// Show message when user edited
+	echo "<script>alert('Produk edited successfully.'); window.location.href='index.php';</script>";
 }
 ?>
 <?php
@@ -23,7 +23,7 @@ if(isset($_POST['update']))
 // Getting id from url
 $id = $_GET['id'];
  
-// Fetech user data based on id
+// Fetch user data based on id
 $result = mysqli_query($mysqli, "SELECT * FROM produks WHERE id=$id");
  
 while($user_data = mysqli_fetch_array($result))
@@ -36,31 +36,32 @@ while($user_data = mysqli_fetch_array($result))
 <html>
 <head>	
 	<title>Edit Produk Data</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
  
 <body>
-	<a href="index.php">Home</a>
-	<br/><br/>
+
 	
-	<form name="update_user" method="post" action="edit.php">
-		<table border="0">
-			<tr> 
-				<td>Name</td>
-				<td><input type="text" name="name" value=<?php echo $name;?>></td>
-			</tr>
-			<tr> 
-				<td>Jenis</td>
-				<td><input type="text" name="jenis" value=<?php echo $jenis;?>></td>
-			</tr>
-			<tr> 
-				<td>Stok</td>
-				<td><input type="number" name="stok" value=<?php echo $stok;?>></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
-				<td><input type="submit" name="update" value="Update"></td>
-			</tr>
-		</table>
-	</form>
+<section class="p-4" style="margin: 20px;">
+<a type="button" class="btn btn-primary" href="index.php">Home</a>
+
+<br/><br/>
+<form name="update_user" method="post" action="edit.php" class="form">
+		<div class="mb-3">
+			<label for="name" class="form-label">Name</label>
+			<input type="text" class="form-control" id="name" name="name" value="<?php echo $name; ?>">
+		</div>
+		<div class="mb-3">
+			<label for="jenis" class="form-label">Jenis</label>
+			<input type="text" class="form-control" id="jenis" name="jenis" value="<?php echo $jenis; ?>">
+		</div>
+		<div class="mb-3">
+			<label for="stok" class="form-label">Stok</label>
+			<input type="number" class="form-control" id="stok" name="stok" value="<?php echo $stok; ?>">
+		</div>
+		<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
+		<button type="submit" name="update" class="btn btn-primary">Update</button>
+</form>
+</section>
 </body>
 </html>
