@@ -15,7 +15,7 @@ if(isset($_POST['update']))
 	$result = mysqli_query($mysqli, "UPDATE produks SET name='$name',jenis='$jenis',stok='$stok' WHERE id=$id");
 	
 	// Show message when user edited
-	echo "<script>alert('Produk edited successfully.'); window.location.href='index.php';</script>";
+	echo "<script>alert('Produk edited successfully.'); window.location.href='crud.php';</script>";
 }
 ?>
 <?php
@@ -43,7 +43,7 @@ while($user_data = mysqli_fetch_array($result))
 
 	
 <section class="p-4" style="margin: 20px;">
-<a type="button" class="btn btn-primary" href="index.php">Home</a>
+<a type="button" class="btn btn-primary" href="crud.php">Home</a>
 
 <br/><br/>
 <form name="update_user" method="post" action="edit.php" class="form">

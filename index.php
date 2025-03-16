@@ -1,47 +1,76 @@
-<?php
-// Create database connection using config file
-include_once("config.php");
- 
-// Fetch all users data from database
-$result = mysqli_query($mysqli, "SELECT * FROM produks ORDER BY id DESC");
-?>
- 
-<html>
-<head>    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
- 
 <body>
-    <section class="p-4" style="margin: 20px;">
-    <a type="button" class="btn btn-primary" href="add.php">Add New Produks</a>
-    <br/><br/>
-    
-        <table width='80%' border=1 class="table table-bordered">
-    
-        <tr>
-            <th>Name</th> <th>Jenis</th> <th>Stok</th> <th>Update</th>
-        </tr>
-        <?php  
-        while($user_data = mysqli_fetch_array($result)) {         
-            echo "<tr>";
-            echo "<td>".$user_data['name']."</td>";
-            echo "<td>".$user_data['jenis']."</td>";
-            echo "<td>".$user_data['stok']."</td>";    
-            echo "<td><a href='edit.php?id=$user_data[id]'>Edit</a> | <a href='delete.php?id=$user_data[id]'>Delete</a></td></tr>";        
-        }
-        ?>
-        </table>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid" style="padding: 2rem 4rem;"> 
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item me-3"><a class="nav-link active" href="#">Pengenalan bootstrap</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="#">Lanjutan PHP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="CRUD/crud.php">CRUD PHP</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <figure class="text-end">
-            <blockquote class="blockquote">
-                <p>Tugas 3 Latihan CRUD PHP</p>
-            </blockquote>
-            <figcaption class="blockquote-footer">
-                Dibuat oleh <cite title="Author">Faza Bilwildi Emyu_2311103083_SI07B</cite>
-            </figcaption>
-        </figure>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Container -->
+    <div class="container-fluid my-5"  style="padding: 2rem 4rem;"> 
+        <div class="row">
+            <div class="col-md-5">
+                <h2>Nama Lengkap</h2>
+                <p>Deskripsi singkat tentang diri Anda.</p>
+                <a href="#" class="btn btn-primary">LinkedIn</a>
+            </div>
+            <div class="col-md-5">
+                <img src="foto.jpg" class="img-fluid rounded-circle border" alt="Foto Profil">
+            </div>
+        </div>
+    </div>
+
+    <!-- card -->
+    <div class="container" style="padding: 2rem 4rem;">
+  <div class="row">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;"> <img src="image.jpg" class="card-img-top" alt="Gambar">
+                <div class="card-body">
+                    <h5 class="card-title">Judul Kartu</h5>
+                    <p class="card-text">Deskripsi kartu.</p> <a href="#" class="btn btn-primary">Tombol</a>
+                </div>
+            </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;"> <img src="image.jpg" class="card-img-top" alt="Gambar">
+                <div class="card-body">
+                    <h5 class="card-title">Judul Kartu</h5>
+                    <p class="card-text">Deskripsi kartu.</p> <a href="#" class="btn btn-primary">Tombol</a>
+                </div>
+            </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;"> <img src="image.jpg" class="card-img-top" alt="Gambar">
+                <div class="card-body">
+                    <h5 class="card-title">Judul Kartu</h5>
+                    <p class="card-text">Deskripsi kartu.</p> <a href="#" class="btn btn-primary">Tombol</a>
+                </div>
+            </div>
+    </div>
+  </div>
+</div>
+    
+            
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

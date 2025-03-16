@@ -9,5 +9,5 @@ $id = $_GET['id'];
 $result = mysqli_query($mysqli, "DELETE FROM produks WHERE id=$id");
  
 // Show message when user deleted
-echo "<script>alert('Product deleted.'); window.location.href='index.php';</script>";
+echo "<script>alert('Product deleted.'); window.location.href='crud.php';</script>";
 ?>

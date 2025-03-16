@@ -6,7 +6,7 @@
  
 <body>
 	<section class="p-4" style="margin: 20px;">
-		<a type="button" class="btn btn-primary" href="index.php">Go to Home</a>
+		<a type="button" class="btn btn-primary" href="crud.php">Go to Home</a>
 		<br/><br/>
 		<form action="add.php" method="post" name="form1" class="form">
 			<div class="mb-3">
@@ -40,7 +40,7 @@
 		$result = mysqli_query($mysqli, "INSERT INTO produks(name,jenis,stok) VALUES('$name','$jenis','$stok')");
 		
 		// Show message when user added
-		echo "<script>alert('Produk added successfully.'); window.location.href='index.php';</script>";
+		echo "<script>alert('Produk added successfully.'); window.location.href='crud.php';</script>";
 
 	}
 	?>
