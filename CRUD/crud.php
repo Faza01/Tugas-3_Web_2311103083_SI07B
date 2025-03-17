@@ -24,8 +24,11 @@ $result = mysqli_query($mysqli, "SELECT * FROM produks ORDER BY id DESC");
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item me-3"><a class="nav-link" href="../index.php">Pengenalan bootstrap</a></li>
-                    <li class="nav-item me-3"><a class="nav-link" href="#">Lanjutan PHP</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="crud.php">CRUD PHP</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="../lanjutan.php">Lanjutan PHP</a></li>
+                    <li class="nav-item me-3"><a class="nav-link active" href="crud.php">CRUD PHP</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Login/logout.php" style="color: red;">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
